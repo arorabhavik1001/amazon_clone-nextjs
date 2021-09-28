@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.badaHoja {
+    transition: 0.1s;
+}
+
+.badaHoja:active {
+    transform: scale(.9);
+  transform-origin: center;
+}
