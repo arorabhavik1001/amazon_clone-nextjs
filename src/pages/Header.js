@@ -63,7 +63,10 @@ function Header() {
           </div>
         </div>
       </div>
-      <div className="flex items-center bg-amazon_blue-light text-white"></div>
+      <div className="grid grid-cols-2">
+        <div className="bg-amazon_blue-light"></div>
+        <div className="bg-yellow-400"></div>
+      </div>
     </header>
   );
 }
