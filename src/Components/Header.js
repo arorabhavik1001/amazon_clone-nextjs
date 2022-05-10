@@ -1,13 +1,26 @@
 import Image from "next/image";
 import { MenuIcon, SearchIcon } from "@heroicons/react/outline";
 import { ShoppingCartIcon } from "@heroicons/react/solid";
+import { useSession, signIn, signOut } from "next-auth/react";
+
 
 function Header() {
   const search = () => {
     alert("search not available");
   };
+  const { data: session } = useSession();
+  if (session) {
+    return (
+      <div className={styles.container}>
+        Welcome user
+        <br />
+        <button onClick={() => signOut()}>Sign out</button>
+      </div>
+    );
+  }
   return (
     <header style={{ position: "sticky", top: 0 }} className="z-50">
+      <button onClick={() => signIn()}>Sign in</button>
       <div
         style={{
           "border-radius": "0px 0px 30px 30px",
@@ -31,7 +44,7 @@ function Header() {
           />
           <div className="inline-flex sm:hidden text-white items-center space-x-6 mx-1 sm:mx-6 whitespace-nowrap mb-3">
             <div className="hidden sm:inline-flex cursor-pointer hover:underline text-xs md:text-lg ">
-              <p>Hello, Bhavik Arora</p>
+              <p onClick={search}>Hello, Bhavik Arora</p>
             </div>
             <div className="flex items-center cursor-pointer hover:underline bg-yellow-400 rounded-full text-black px-3 space-x-3 py-1">
               <div className="relative">
