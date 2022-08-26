@@ -20,7 +20,6 @@ function Header() {
   }
   return (
     <header style={{ position: "sticky", top: 0 }} className="z-50">
-      <button onClick={() => signIn()}>Sign in</button>
       <div
         style={{
           "border-radius": "0px 0px 30px 30px",
